@@ -17,7 +17,7 @@ fn update_commit_push() {
     // Command 2: Commit all changes
     let commit_command = Command::new("git")
         .arg("commit")
-        .arg("-a")
+        // .arg("-a")
         .arg("-m")
         .arg(name_generator())
         .output()
