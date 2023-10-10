@@ -32,7 +32,7 @@ fn update_commit_push() {
     let push_command = Command::new("git")
         .arg("push")
         .arg("origin")
-        .arg("main")
+        .arg("master")
         .output()
         .expect("Failed to execute git push command");
 
@@ -48,7 +48,5 @@ let mut generator = Generator::default();
     generator.next().unwrap()
 }
 fn main() {
-    println!("{:?}", name_generator());
-    println!("{:?}", name_generator());
     update_commit_push();
 }
