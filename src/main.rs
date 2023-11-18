@@ -1,7 +1,8 @@
 use std::process::{Command, exit};
 use names::Generator;
+use std::env;
 
-fn update_commit_push() {
+fn update_commit_push(comment: &str) {
     // Command 1: Add all files recursively to git repo
     let add_command = Command::new("git")
         .arg("add")
@@ -19,7 +20,7 @@ fn update_commit_push() {
         .arg("commit")
         // .arg("-a")
         .arg("-m")
-        .arg(name_generator())
+        .arg(comment)
         .output()
         .expect("Failed to execute git commit command");
 
@@ -43,10 +44,11 @@ fn update_commit_push() {
 
     println!("Successfully added, committed, and pushed changes!\nKAAY VISHAY NAI ANNA, pathavle warti");
 }
-fn name_generator() -> String{
-let mut generator = Generator::default();
-    generator.next().unwrap()
-}
+
 fn main() {
-    update_commit_push();
+    let collect:Vec<String> = env::args().collect();
+    let comment = &collect[0];
+    println!("{}", comment);
+
+    update_commit_push(&comment);
 }
