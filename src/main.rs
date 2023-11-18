@@ -1,5 +1,4 @@
 use std::process::{Command, exit};
-use names::Generator;
 use std::env;
 
 fn update_commit_push(comment: &str) {
