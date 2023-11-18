@@ -32,7 +32,7 @@ fn update_commit_push(comment: &str) {
     let push_command = Command::new("git")
         .arg("push")
         .arg("origin")
-        .arg("master")
+        .arg("feature/comment-from-terminal")
         .output()
         .expect("Failed to execute git push command");
 
@@ -41,13 +41,13 @@ fn update_commit_push(comment: &str) {
         exit(1);
     }
 
-    println!("Successfully added, committed, and pushed changes!\nKAAY VISHAY NAI ANNA, pathavle warti");
+    println!("KAAY VISHAY NAI ANNA, pathavle warti");
 }
 
 fn main() {
     let collect:Vec<String> = env::args().collect();
     let comment = &collect[1];
-    println!("comment is - {}", comment);
+    println!("comment is : {}", comment);
 
     update_commit_push(&comment);
 }
