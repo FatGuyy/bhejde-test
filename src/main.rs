@@ -46,7 +46,7 @@ fn update_commit_push(comment: &str) {
 
 fn main() {
     let collect:Vec<String> = env::args().collect();
-    let comment = &collect[0];
+    let comment = &collect[1];
     println!("comment is - {}", comment);
 
     update_commit_push(&comment);
