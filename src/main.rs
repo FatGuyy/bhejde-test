@@ -32,7 +32,7 @@ fn update_commit_push(comment: &str) {
     let push_command = Command::new("git")
         .arg("push")
         .arg("origin")
-        .arg("feature/comment-from-terminal")
+        .arg("main")
         .output()
         .expect("Failed to execute git push command");
 
