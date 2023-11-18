@@ -47,7 +47,7 @@ fn update_commit_push(comment: &str) {
 fn main() {
     let collect:Vec<String> = env::args().collect();
     let comment = &collect[1];
-    println!("comment is : {}", comment);
+    println!("{}", comment);
 
     update_commit_push(&comment);
 }
