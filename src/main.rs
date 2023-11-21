@@ -33,6 +33,7 @@ fn update_commit_push(comment: &str, branch: &str) {
         .arg("push")
         .arg("origin")
         .arg(branch)
+
         .output()
         .expect("Failed to execute git push command");
 
@@ -46,9 +47,11 @@ fn update_commit_push(comment: &str, branch: &str) {
 
 fn main() {
     let collect:Vec<String> = env::args().collect();
+
     let branch = &collect[1];
     let comment = &collect[2];
     println!("{} : {}", branch, comment);
+
 
     update_commit_push(&comment, &branch);
 }
