@@ -1,7 +1,7 @@
 use std::process::{Command, exit};
 use std::env;
 
-fn update_commit_push(comment: &str) {
+fn update_commit_push(comment: &str, branch: &str) {
     // Command 1: Add all files recursively to git repo
     let add_command = Command::new("git")
         .arg("add")
@@ -32,7 +32,7 @@ fn update_commit_push(comment: &str) {
     let push_command = Command::new("git")
         .arg("push")
         .arg("origin")
-        .arg("main")
+        .arg(branch)
         .output()
         .expect("Failed to execute git push command");
 
@@ -46,8 +46,9 @@ fn update_commit_push(comment: &str) {
 
 fn main() {
     let collect:Vec<String> = env::args().collect();
-    let comment = &collect[1];
-    println!("{}", comment);
+    let branch = &collect[1];
+    let comment = &collect[2];
+    println!("{} : {}", branch, comment);
 
-    update_commit_push(&comment);
+    update_commit_push(&comment, &branch);
 }
